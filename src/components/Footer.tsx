@@ -29,8 +29,8 @@ export default function Footer() {
               MS
             </div>
             <div>
-              <p className="text-slate-300 font-semibold">{personal.name}</p>
-              <p className="text-slate-500 text-[11px]">
+              <p className="text-slate-200 font-semibold">{personal.name}</p>
+              <p className="text-slate-300 text-[11px]">
                 © {year} • {language === 'es' ? 'Todos los derechos reservados' : 'All rights reserved'}
               </p>
             </div>

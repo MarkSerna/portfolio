@@ -20,6 +20,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-markserna.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Marco Eduar Serna López | Full Stack & RPA Developer",
   description: "Portafolio profesional de Marco Eduar Serna López. Desarrollador Full Stack especializado en Automatización de Procesos (RPA), Sistemas en Tiempo Real y Arquitecturas Escalables (TypeScript, Python, React, Node.js, C#, Docker).",
   keywords: [
@@ -42,11 +46,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Marco Eduar Serna López", url: "https://github.com/MarkSerna" }],
   creator: "Marco Eduar Serna López",
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     type: "website",
     locale: "es_CO",
     alternateLocale: ["en_US"],
-    url: "https://github.com/MarkSerna",
+    url: "https://portfolio-markserna.vercel.app",
     title: "Marco Eduar Serna López | Full Stack & RPA Developer",
     description: "Especialista en Automatización de Procesos (RPA) y Sistemas en Tiempo Real. Conoce mis casos de estudio y proyectos en producción.",
     siteName: "Marco Serna Portfolio",

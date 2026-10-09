@@ -15,7 +15,8 @@ import {
   Terminal,
   Activity,
   MapPin,
-  Smartphone
+  Smartphone,
+  Eye
 } from 'lucide-react';
 import { GithubIcon } from '@/components/Icons';
 
@@ -35,238 +36,235 @@ export default function Projects() {
     ? projects 
     : projects.filter(p => p.category === activeCategory);
 
-  // Vectorial mockups generator tailored to each project's domain
+  // Vectorial mockups generator with explicit "Simulación ilustrativa" notice
   const renderVisualMockup = (project: Project) => {
     switch (project.id) {
       case 'geo-transport':
         return (
-          <div className="h-48 sm:h-52 w-full bg-slate-950/80 rounded-xl border border-cyan-500/20 p-4 relative overflow-hidden flex flex-col justify-between font-mono text-xs">
-            {/* Background Map Grid & Wave */}
-            <div className="absolute inset-0 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
-            <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
-
-            {/* Top Bar */}
-            <div className="relative z-10 flex items-center justify-between border-b border-slate-800/80 pb-2">
-              <div className="flex items-center gap-2 text-cyan-400">
-                <Radio className="w-3.5 h-3.5 animate-pulse text-emerald-400" />
-                <span className="font-semibold text-[11px]">TELEMETRY FEED // SOCKET.IO</span>
+          <div className="h-48 sm:h-52 w-full bg-slate-950/90 rounded-xl border border-cyan-500/30 p-4 relative overflow-hidden flex flex-col justify-between font-mono text-xs">
+            {/* Background Grid */}
+            <div className="absolute inset-0 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:16px_16px] opacity-15"></div>
+            
+            {/* Top Bar with explicit Illustrative Simulation Badge */}
+            <div className="relative z-10 flex items-center justify-between border-b border-slate-800 pb-2">
+              <div className="flex items-center gap-2 text-cyan-300">
+                <Radio className="w-3.5 h-3.5 text-cyan-400" />
+                <span className="font-semibold text-[11px]">FLUJO // WEBSOCKET & POSTGIS</span>
               </div>
-              <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded text-[10px]">
-                LATENCY: 142ms
+              <span className="bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded text-[10px] font-sans font-medium">
+                {language === 'es' ? 'Simulación ilustrativa' : 'Illustrative Simulation'}
               </span>
             </div>
 
-            {/* Live Map Vector Representation */}
+            {/* Architecture Representation */}
             <div className="relative z-10 my-auto flex items-center justify-between px-2">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/40 flex items-center justify-center text-cyan-300">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-lg bg-cyan-950/80 border border-cyan-500/40 flex items-center justify-center text-cyan-300">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[11px] text-slate-200 font-bold">Ruta Escolar #04</div>
-                  <div className="text-[10px] text-slate-400">4.8521° N, 75.5089° W • PostGIS</div>
+                  <div className="text-xs text-white font-bold">Ruta & Georreferenciación</div>
+                  <div className="text-[11px] text-slate-300 font-sans">Indexación Espacial • PostgreSQL + PostGIS</div>
                 </div>
               </div>
               
               <div className="text-right">
-                <div className="text-[10px] text-slate-400">ESTIMATED (VRP)</div>
-                <div className="text-sm font-bold text-cyan-400 font-mono">14 MIN RESTANTES</div>
+                <div className="text-[10px] text-slate-400">MICROSERVICIO</div>
+                <div className="text-xs font-bold text-cyan-300 font-mono">Python VRP Solver</div>
               </div>
             </div>
 
             {/* Bottom Status Bar */}
-            <div className="relative z-10 flex items-center justify-between text-[10px] text-slate-400 pt-2 border-t border-slate-800/80">
-              <span className="text-slate-300">Mapbox GL • Redis Pub/Sub</span>
-              <span className="text-cyan-400 font-bold">● 24 VEHICLES CONNECTED</span>
+            <div className="relative z-10 flex items-center justify-between text-[11px] text-slate-300 pt-2 border-t border-slate-800">
+              <span>Mapbox GL • Redis Pub/Sub</span>
+              <span className="text-cyan-400 font-semibold font-mono">Socket.IO Event Hub</span>
             </div>
           </div>
         );
 
       case 'rpa-invoicing':
         return (
-          <div className="h-48 sm:h-52 w-full bg-slate-950/80 rounded-xl border border-emerald-500/20 p-4 relative overflow-hidden flex flex-col justify-between font-mono text-xs">
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/20 to-transparent"></div>
-            {/* Top Bar */}
-            <div className="relative z-10 flex items-center justify-between border-b border-slate-800/80 pb-2">
-              <div className="flex items-center gap-2 text-emerald-400">
+          <div className="h-48 sm:h-52 w-full bg-slate-950/90 rounded-xl border border-emerald-500/30 p-4 relative overflow-hidden flex flex-col justify-between font-mono text-xs">
+            {/* Top Bar with Illustrative Simulation Notice */}
+            <div className="relative z-10 flex items-center justify-between border-b border-slate-800 pb-2">
+              <div className="flex items-center gap-2 text-emerald-300">
                 <Bot className="w-3.5 h-3.5" />
-                <span className="font-semibold text-[11px]">RPA PIPELINE // GMAIL & XML ETL</span>
+                <span className="font-semibold text-[11px]">PIPELINE ETL // XML & GMAIL</span>
               </div>
-              <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded text-[10px]">
-                WORKFLOW: AUTONOMOUS
+              <span className="bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded text-[10px] font-sans font-medium">
+                {language === 'es' ? 'Simulación ilustrativa' : 'Illustrative Simulation'}
               </span>
             </div>
 
             {/* Pipeline Step Representation */}
             <div className="relative z-10 my-auto space-y-1.5 text-[11px]">
-              <div className="flex items-center justify-between bg-slate-900/80 p-1.5 rounded border border-white/5">
-                <span className="text-slate-300 flex items-center gap-1.5">
+              <div className="flex items-center justify-between bg-slate-900/90 p-1.5 rounded border border-white/5">
+                <span className="text-slate-200 flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  1. Ingesta Correo API
+                  1. Extracción Automatizada (Gmail API)
                 </span>
-                <span className="text-slate-400">100% OK</span>
+                <span className="text-emerald-400 font-mono">Python Bot</span>
               </div>
-              <div className="flex items-center justify-between bg-slate-900/80 p-1.5 rounded border border-white/5">
-                <span className="text-slate-300 flex items-center gap-1.5">
+              <div className="flex items-center justify-between bg-slate-900/90 p-1.5 rounded border border-white/5">
+                <span className="text-slate-200 flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  2. Validación XML Schema (DIAN)
+                  2. Parser y Validación Fiscal (XSD)
                 </span>
-                <span className="text-emerald-400 font-bold">VALIDADO</span>
+                <span className="text-cyan-400 font-mono">XML Schema</span>
               </div>
-              <div className="flex items-center justify-between bg-slate-900/80 p-1.5 rounded border border-white/5">
-                <span className="text-slate-300 flex items-center gap-1.5">
+              <div className="flex items-center justify-between bg-slate-900/90 p-1.5 rounded border border-white/5">
+                <span className="text-slate-200 flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                  3. Conciliación MariaDB / NestJS
+                  3. Ingesta Relacional & Auditoría
                 </span>
-                <span className="text-cyan-400 font-mono">0.08s</span>
+                <span className="text-slate-300 font-mono">MariaDB / Prisma</span>
               </div>
             </div>
 
             {/* Bottom Status */}
-            <div className="relative z-10 flex items-center justify-between text-[10px] text-slate-400 pt-2 border-t border-slate-800/80">
-              <span>Error Humano: 0.00%</span>
-              <span className="text-emerald-400 font-bold">+85% AHORRO DE TIEMPO</span>
+            <div className="relative z-10 flex items-center justify-between text-[11px] text-slate-300 pt-2 border-t border-slate-800">
+              <span>Frontend: React + TypeScript</span>
+              <span className="text-emerald-400 font-semibold">Procesamiento Autónomo</span>
             </div>
           </div>
         );
 
       case 'haltsense':
         return (
-          <div className="h-48 sm:h-52 w-full bg-slate-950/80 rounded-xl border border-amber-500/20 p-4 relative overflow-hidden flex flex-col justify-between font-mono text-xs">
-            <div className="absolute inset-0 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:20px_20px] opacity-10"></div>
-            {/* Top Bar */}
-            <div className="relative z-10 flex items-center justify-between border-b border-slate-800/80 pb-2">
-              <div className="flex items-center gap-2 text-amber-400">
-                <Activity className="w-3.5 h-3.5 animate-pulse" />
-                <span className="font-semibold text-[11px]">HALTSENSE // MEDIAPIPE FACEMESH</span>
+          <div className="h-48 sm:h-52 w-full bg-slate-950/90 rounded-xl border border-amber-500/30 p-4 relative overflow-hidden flex flex-col justify-between font-mono text-xs">
+            {/* Top Bar with Illustrative Simulation Notice */}
+            <div className="relative z-10 flex items-center justify-between border-b border-slate-800 pb-2">
+              <div className="flex items-center gap-2 text-amber-300">
+                <Activity className="w-3.5 h-3.5" />
+                <span className="font-semibold text-[11px]">HALTSENSE // VISIÓN ARTIFICIAL</span>
               </div>
-              <span className="bg-amber-500/10 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded text-[10px]">
-                LIVE: 32 FPS
+              <span className="bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded text-[10px] font-sans font-medium">
+                {language === 'es' ? 'Simulación ilustrativa' : 'Illustrative Simulation'}
               </span>
             </div>
 
             {/* Biometric Scores Display */}
             <div className="relative z-10 my-auto grid grid-cols-3 gap-2 text-center">
-              <div className="bg-slate-900/90 p-2 rounded-lg border border-slate-800">
-                <div className="text-[10px] text-slate-400">EAR (Ojos)</div>
-                <div className="text-sm font-bold text-emerald-400 font-mono mt-0.5">0.31</div>
-                <div className="text-[9px] text-slate-500">Normal (&gt;0.22)</div>
+              <div className="bg-slate-900/95 p-2 rounded-lg border border-slate-800">
+                <div className="text-[10px] text-slate-400 font-sans">Métrica EAR</div>
+                <div className="text-xs font-bold text-cyan-300 font-mono mt-0.5">Ojos (Landmarks)</div>
+                <div className="text-[9px] text-slate-400 font-sans mt-0.5">Detección Cierre</div>
               </div>
-              <div className="bg-slate-900/90 p-2 rounded-lg border border-slate-800">
-                <div className="text-[10px] text-slate-400">MAR (Boca)</div>
-                <div className="text-sm font-bold text-cyan-400 font-mono mt-0.5">0.19</div>
-                <div className="text-[9px] text-slate-500">Sin bostezo</div>
+              <div className="bg-slate-900/95 p-2 rounded-lg border border-slate-800">
+                <div className="text-[10px] text-slate-400 font-sans">Métrica MAR</div>
+                <div className="text-xs font-bold text-cyan-300 font-mono mt-0.5">Boca (Bostezos)</div>
+                <div className="text-[9px] text-slate-400 font-sans mt-0.5">Frecuencia</div>
               </div>
-              <div className="bg-slate-900/90 p-2 rounded-lg border border-slate-800">
-                <div className="text-[10px] text-slate-400">PERCLOS</div>
-                <div className="text-sm font-bold text-amber-400 font-mono mt-0.5">3.8%</div>
-                <div className="text-[9px] text-slate-500">Alerta &gt;12%</div>
+              <div className="bg-slate-900/95 p-2 rounded-lg border border-slate-800">
+                <div className="text-[10px] text-slate-400 font-sans">PERCLOS & Pose</div>
+                <div className="text-xs font-bold text-amber-300 font-mono mt-0.5">solvePnP 3D</div>
+                <div className="text-[9px] text-slate-400 font-sans mt-0.5">Caída Cabeza</div>
               </div>
             </div>
 
             {/* Bottom Status */}
-            <div className="relative z-10 flex items-center justify-between text-[10px] text-slate-400 pt-2 border-t border-slate-800/80">
-              <span className="text-slate-300">solvePnP Pose • WebSockets</span>
-              <span className="text-emerald-400 font-bold">ESTADO OPERARIO: VIGILANTE</span>
+            <div className="relative z-10 flex items-center justify-between text-[11px] text-slate-300 pt-2 border-t border-slate-800">
+              <span>MediaPipe FaceMesh • OpenCV</span>
+              <span className="text-cyan-400 font-semibold font-mono">FastAPI Stream</span>
             </div>
           </div>
         );
 
       case 'stickynotes':
         return (
-          <div className="h-48 sm:h-52 w-full bg-slate-950/80 rounded-xl border border-blue-500/20 p-4 relative overflow-hidden flex flex-col justify-between font-mono text-xs">
+          <div className="h-48 sm:h-52 w-full bg-slate-950/90 rounded-xl border border-blue-500/30 p-4 relative overflow-hidden flex flex-col justify-between font-mono text-xs">
             {/* Top Windows 11 Header */}
-            <div className="relative z-10 flex items-center justify-between border-b border-slate-800/80 pb-2">
-              <div className="flex items-center gap-2 text-blue-400">
+            <div className="relative z-10 flex items-center justify-between border-b border-slate-800 pb-2">
+              <div className="flex items-center gap-2 text-blue-300">
                 <div className="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
-                <span className="font-semibold text-[11px]">STICKYNOTES // .NET 8 WINUI 3</span>
+                <span className="font-semibold text-[11px]">DESKTOP // .NET 8 WINUI 3</span>
               </div>
-              <span className="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-0.5 rounded text-[10px]">
-                FLUENT MICA ALT
+              <span className="bg-blue-500/10 text-blue-300 border border-blue-500/30 px-2 py-0.5 rounded text-[10px] font-sans font-medium">
+                Fluent Mica Alt
               </span>
             </div>
 
-            {/* Windows 11 Note Card Simulation */}
-            <div className="relative z-10 my-auto bg-slate-900/90 p-3 rounded-lg border border-blue-500/30 shadow-lg">
-              <div className="flex items-center justify-between text-[10px] text-slate-400 mb-1.5 border-b border-white/5 pb-1">
-                <span className="text-cyan-300 font-bold">Nota Rápida #1 • SQLite WAL</span>
-                <span className="text-emerald-400 flex items-center gap-1">
-                  <CheckCircle2 className="w-3 h-3" /> Drive Sync OK
+            {/* Note Card Simulation */}
+            <div className="relative z-10 my-auto bg-slate-900/95 p-3 rounded-lg border border-blue-500/30 shadow-lg">
+              <div className="flex items-center justify-between text-[10px] text-slate-300 mb-1.5 border-b border-white/5 pb-1">
+                <span className="text-cyan-300 font-bold font-mono">SQLite (WAL Mode)</span>
+                <span className="text-emerald-400 flex items-center gap-1 font-sans">
+                  <CheckCircle2 className="w-3 h-3" /> Google Drive OAuth2
                 </span>
               </div>
-              <p className="text-[11px] text-slate-300 leading-tight">
-                Persistencia instantánea en milisegundos con EF Core 8 y cifrado seguro de credenciales con DPAPI.
+              <p className="text-[11px] text-slate-200 leading-snug font-sans">
+                Arquitectura desacoplada en capas (.Core, .Data, .Sync, .App) con encriptación local DPAPI.
               </p>
             </div>
 
             {/* Bottom Status */}
-            <div className="relative z-10 flex items-center justify-between text-[10px] text-slate-400 pt-2 border-t border-slate-800/80">
-              <span className="text-slate-300">Clean Architecture • C#</span>
-              <span className="text-cyan-400 font-bold">ARRANQUE &lt; 250ms</span>
+            <div className="relative z-10 flex items-center justify-between text-[11px] text-slate-300 pt-2 border-t border-slate-800">
+              <span>Clean Architecture • C#</span>
+              <span className="text-cyan-300 font-semibold">Persistencia Local Instantánea</span>
             </div>
           </div>
         );
 
       case 'oura-ui':
         return (
-          <div className="h-48 sm:h-52 w-full bg-slate-950/80 rounded-xl border border-purple-500/20 p-4 relative overflow-hidden flex flex-col justify-between font-mono text-xs">
+          <div className="h-48 sm:h-52 w-full bg-slate-950/90 rounded-xl border border-purple-500/30 p-4 relative overflow-hidden flex flex-col justify-between font-mono text-xs">
             {/* Top Bar */}
-            <div className="relative z-10 flex items-center justify-between border-b border-slate-800/80 pb-2">
-              <div className="flex items-center gap-2 text-purple-400">
+            <div className="relative z-10 flex items-center justify-between border-b border-slate-800 pb-2">
+              <div className="flex items-center gap-2 text-purple-300">
                 <Package className="w-3.5 h-3.5" />
                 <span className="font-semibold text-[11px]">NPM PACKAGE // OURA-UI</span>
               </div>
-              <span className="bg-purple-500/10 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded text-[10px]">
-                10 kB GZIPPED
+              <span className="bg-purple-500/10 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded text-[10px] font-sans font-medium">
+                Verified on NPM
               </span>
             </div>
 
             {/* Terminal Command Simulation */}
-            <div className="relative z-10 my-auto bg-slate-900/90 p-3 rounded-lg border border-purple-500/30">
-              <div className="text-[11px] text-slate-400 flex items-center gap-2 mb-1">
+            <div className="relative z-10 my-auto bg-slate-900/95 p-3 rounded-lg border border-purple-500/30">
+              <div className="text-[11px] text-slate-300 flex items-center gap-2 mb-1">
                 <Terminal className="w-3 h-3 text-purple-400" />
                 <span className="text-purple-300 font-bold">npm install oura-ui</span>
               </div>
               <div className="text-[10px] text-emerald-400 font-sans">
-                ✓ 0 runtime dependencies • 100% TypeScript typed • Vitest passed
+                ✓ 0 dependencias externas • 100% tipado en TypeScript • Vitest
               </div>
             </div>
 
             {/* Bottom Status */}
-            <div className="relative z-10 flex items-center justify-between text-[10px] text-slate-400 pt-2 border-t border-slate-800/80">
-              <span className="text-slate-300">Dark Mode • i18n 10 Idiomas</span>
-              <span className="text-purple-400 font-bold">PUBLICADO EN NPM</span>
+            <div className="relative z-10 flex items-center justify-between text-[11px] text-slate-300 pt-2 border-t border-slate-800">
+              <span>Glassmorphism • i18n 10 Idiomas</span>
+              <span className="text-purple-300 font-semibold">Registro Global NPM</span>
             </div>
           </div>
         );
 
       case 'mobile-view':
         return (
-          <div className="h-48 sm:h-52 w-full bg-slate-950/80 rounded-xl border border-teal-500/20 p-4 relative overflow-hidden flex flex-col justify-between font-mono text-xs">
+          <div className="h-48 sm:h-52 w-full bg-slate-950/90 rounded-xl border border-teal-500/30 p-4 relative overflow-hidden flex flex-col justify-between font-mono text-xs">
             {/* Top Bar */}
-            <div className="relative z-10 flex items-center justify-between border-b border-slate-800/80 pb-2">
-              <div className="flex items-center gap-2 text-teal-400">
+            <div className="relative z-10 flex items-center justify-between border-b border-slate-800 pb-2">
+              <div className="flex items-center gap-2 text-teal-300">
                 <Smartphone className="w-3.5 h-3.5" />
                 <span className="font-semibold text-[11px]">VS CODE EXTENSION // MOBILE VIEW</span>
               </div>
-              <span className="bg-teal-500/10 text-teal-400 border border-teal-500/30 px-2 py-0.5 rounded text-[10px]">
-                OPEN VSX MARKETPLACE
+              <span className="bg-teal-500/10 text-teal-300 border border-teal-500/30 px-2 py-0.5 rounded text-[10px] font-sans font-medium">
+                Open VSX Marketplace
               </span>
             </div>
 
             {/* Mobile Viewport Simulation */}
             <div className="relative z-10 my-auto flex items-center justify-center">
-              <div className="w-40 bg-slate-900 border border-teal-500/40 rounded-xl p-2 text-center shadow-lg">
+              <div className="w-44 bg-slate-900 border border-teal-500/40 rounded-xl p-2 text-center shadow-lg">
                 <div className="w-8 h-1 bg-slate-700 rounded-full mx-auto mb-1.5"></div>
-                <div className="text-[10px] text-teal-300 font-bold">iPhone 15 Pro • 393x852</div>
-                <div className="text-[9px] text-slate-400 mt-0.5">Rotación 90° • Zoom 100%</div>
+                <div className="text-[11px] text-teal-300 font-bold font-mono">Chromium Webview Panel</div>
+                <div className="text-[10px] text-slate-300 mt-0.5 font-sans">Rotación 90° • Zoom • Perfiles</div>
               </div>
             </div>
 
             {/* Bottom Status */}
-            <div className="relative z-10 flex items-center justify-between text-[10px] text-slate-400 pt-2 border-t border-slate-800/80">
-              <span className="text-slate-300">Chromium Webview Simulator</span>
-              <span className="text-teal-400 font-bold">DISPONIBLE EN OPEN VSX</span>
+            <div className="relative z-10 flex items-center justify-between text-[11px] text-slate-300 pt-2 border-t border-slate-800">
+              <span>TypeScript • VS Code Extension API</span>
+              <span className="text-teal-300 font-semibold">Open VSX Store</span>
             </div>
           </div>
         );
@@ -288,23 +286,25 @@ export default function Projects() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
             {language === 'es' ? 'Proyectos & Casos de Estudio Seleccionados' : 'Featured Projects & Case Studies'}
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             {language === 'es'
-              ? 'Proyectos de ingeniería estructurados en Problema → Solución → Resultado. Incluye casos de estudio empresariales de alta confidencialidad y proyectos open source con código verificable.'
-              : 'Engineering initiatives structured in Problem → Solution → Result. Encompassing high-confidentiality enterprise case studies alongside open-source software with verifiable repositories.'}
+              ? 'Proyectos de ingeniería estructurados en Problema → Solución → Resultado. Incluye casos de estudio empresariales anonimizados y proyectos open source con código verificable.'
+              : 'Engineering initiatives structured in Problem → Solution → Result. Encompassing anonymized enterprise case studies alongside open-source software with verifiable repositories.'}
           </p>
         </div>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-14" role="tablist">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-14" role="tablist" aria-label={language === 'es' ? 'Filtrar proyectos por categoría' : 'Filter projects by category'}>
           {categories.map((cat) => (
             <button
               key={cat.id}
+              role="tab"
+              aria-selected={activeCategory === cat.id}
               onClick={() => setActiveCategory(cat.id as any)}
               className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 activeCategory === cat.id
                   ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
-                  : 'bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700'
+                  : 'bg-slate-900/80 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700'
               }`}
             >
               {cat.label[language]}
@@ -317,7 +317,7 @@ export default function Projects() {
           {filteredProjects.map((project) => (
             <article
               key={project.id}
-              className="glass-panel rounded-2xl border border-white/5 overflow-hidden flex flex-col justify-between hover:border-cyan-500/30 transition-all group"
+              className="glass-panel rounded-2xl border border-white/10 overflow-hidden flex flex-col justify-between hover:border-cyan-500/30 transition-all group"
             >
               <div>
                 {/* Visual Vector Mockup Header */}
@@ -350,44 +350,44 @@ export default function Projects() {
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
                     {project.title[language]}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-400 mb-6 font-medium leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 mb-6 font-medium leading-relaxed">
                     {project.subtitle[language]}
                   </p>
 
                   {/* Problem -> Solution -> Result Structured Flow */}
                   <div className="space-y-3.5 mb-6 text-xs sm:text-sm leading-relaxed">
-                    <div className="bg-slate-900/60 p-3.5 rounded-xl border border-white/5">
-                      <div className="text-[11px] font-bold text-rose-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <div className="bg-slate-900/70 p-3.5 rounded-xl border border-white/5">
+                      <div className="text-[11px] font-bold text-rose-300 uppercase tracking-wider mb-1 flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
                         {language === 'es' ? 'Problema / Desafío' : 'Problem / Challenge'}
                       </div>
-                      <p className="text-slate-300">{project.problem[language]}</p>
+                      <p className="text-slate-200">{project.problem[language]}</p>
                     </div>
 
-                    <div className="bg-slate-900/60 p-3.5 rounded-xl border border-white/5">
-                      <div className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <div className="bg-slate-900/70 p-3.5 rounded-xl border border-white/5">
+                      <div className="text-[11px] font-bold text-cyan-300 uppercase tracking-wider mb-1 flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
                         {language === 'es' ? 'Solución Técnica' : 'Technical Solution'}
                       </div>
-                      <p className="text-slate-300">{project.solution[language]}</p>
+                      <p className="text-slate-200">{project.solution[language]}</p>
                     </div>
 
-                    <div className="bg-slate-900/60 p-3.5 rounded-xl border border-white/5">
-                      <div className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <div className="bg-slate-900/70 p-3.5 rounded-xl border border-white/5">
+                      <div className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider mb-1 flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                        {language === 'es' ? 'Resultado Medible' : 'Measurable Impact'}
+                        {language === 'es' ? 'Resultado Comprobado' : 'Verified Outcome'}
                       </div>
                       <p className="text-slate-200 font-medium">{project.result[language]}</p>
                     </div>
                   </div>
 
-                  {/* Key Metrics Chips */}
+                  {/* Key Metrics / Technical Attributes Chips */}
                   {project.metrics && (
                     <div className="grid grid-cols-3 gap-2 mb-6">
                       {project.metrics.map((m, i) => (
-                        <div key={i} className="bg-slate-950/60 p-2 rounded-lg border border-white/5 text-center">
-                          <div className="text-xs font-bold text-cyan-400 font-mono">{m.value}</div>
-                          <div className="text-[10px] text-slate-400">{m.label[language]}</div>
+                        <div key={i} className="bg-slate-950/80 p-2 rounded-lg border border-white/5 text-center">
+                          <div className="text-[11px] font-bold text-cyan-300 font-mono leading-tight">{m.value}</div>
+                          <div className="text-[10px] text-slate-400 mt-0.5">{m.label[language]}</div>
                         </div>
                       ))}
                     </div>
@@ -398,7 +398,7 @@ export default function Projects() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-900 text-slate-300 border border-slate-800"
+                        className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-900 text-slate-200 border border-slate-800"
                       >
                         {tag}
                       </span>
@@ -408,9 +408,9 @@ export default function Projects() {
               </div>
 
               {/* Bottom Actions Bar */}
-              <div className="px-6 py-4 sm:px-7 bg-slate-950/40 border-t border-white/5 flex items-center justify-between">
+              <div className="px-6 py-4 sm:px-7 bg-slate-950/60 border-t border-white/5 flex items-center justify-between">
                 {project.isPrivate ? (
-                  <div className="flex items-center gap-2 text-xs text-slate-400 font-medium">
+                  <div className="flex items-center gap-2 text-xs text-slate-300 font-medium">
                     <Lock className="w-3.5 h-3.5 text-amber-400" />
                     <span>{language === 'es' ? 'Propiedad Intelectual Protegida' : 'Confidential Architecture'}</span>
                   </div>

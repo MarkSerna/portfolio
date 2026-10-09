@@ -54,7 +54,7 @@ export interface Experience {
 export interface SkillGroup {
   name: { es: string; en: string };
   icon: string;
-  skills: { name: string; level: 'Avanzado' | 'Intermedio' | 'Proficiente'; highlight?: boolean }[];
+  skills: { name: string; highlight?: boolean }[];
 }
 
 export const PORTFOLIO_DATA = {
@@ -69,6 +69,10 @@ export const PORTFOLIO_DATA = {
     email: "marcoesernal@gmail.com",
     github: "https://github.com/MarkSerna",
     linkedin: "https://www.linkedin.com/in/marksernalopez",
+    cvUrls: {
+      es: "/cv-marco-serna-es.pdf",
+      en: "/cv-marco-serna-en.pdf"
+    },
     bio: {
       es: "Desarrollador Full Stack y especialista en automatización de procesos con experiencia construyendo plataformas de telemetría en tiempo real, bots empresariales RPA y arquitecturas escalables. Combino ingeniería de software sólida (TypeScript, Python, C#, PHP) con visión de producto para entregar soluciones robustas y medibles en producción.",
       en: "Full Stack Developer and process automation specialist with proven experience architecting real-time telemetry platforms, enterprise RPA bots, and scalable backends. Combining solid software engineering (TypeScript, Python, C#, PHP) with product sense to deliver robust, measurable solutions in production."
@@ -79,24 +83,24 @@ export const PORTFOLIO_DATA = {
     },
     stats: [
       {
-        value: "+2",
-        label: { es: "Años en Producción", en: "Years in Production" },
-        sub: { es: "RPA y Full Stack", en: "RPA & Full Stack" }
+        value: "+2 Años",
+        label: { es: "En Producción", en: "In Production" },
+        sub: { es: "Desarrollo Full Stack y RPA", en: "Full Stack & RPA Engineering" }
       },
       {
-        value: "6+",
-        label: { es: "Ecosistemas Construidos", en: "Ecosystems Built" },
-        sub: { es: "Web, Real-Time y Desktop", en: "Web, Real-Time & Desktop" }
+        value: "Distribuida",
+        label: { es: "Arquitectura", en: "Architecture" },
+        sub: { es: "Microservicios, APIs y WebSockets", en: "Microservices, APIs & WebSockets" }
       },
       {
-        value: "85%+",
-        label: { es: "Ahorro de Tiempo", en: "Time Saved" },
-        sub: { es: "En procesos contables y ETL", en: "In accounting & ETL pipelines" }
+        value: "Autónomo",
+        label: { es: "Pipelines ETL & RPA", en: "ETL & RPA Pipelines" },
+        sub: { es: "Ingesta y validación documental", en: "Document ingestion & validation" }
       },
       {
-        value: "<200ms",
-        label: { es: "Latencia Telemetría", en: "Telemetry Latency" },
-        sub: { es: "Sockets y Geo-tracking", en: "WebSockets & Geo-tracking" }
+        value: "Baja Latencia",
+        label: { es: "Sistemas en Tiempo Real", en: "Real-Time Systems" },
+        sub: { es: "WebSockets y eventos concurrentes", en: "WebSockets & concurrent events" }
       }
     ]
   },
@@ -126,8 +130,8 @@ export const PORTFOLIO_DATA = {
         en: "Engineered a distributed architecture featuring a Mapbox-powered web administration hub, a Python microservice solving Vehicle Routing Problems (VRP), a Socket.IO + Redis cluster for sub-second telemetry broadcast, and geospatial indexing via PostgreSQL + PostGIS."
       },
       result: {
-        es: "Trazabilidad continua con latencia inferior a 200ms, reducción estimada superior al 25% en tiempos de ruta y monitoreo unificado para administradores y tutores.",
-        en: "Continuous live tracking with <200ms telemetry latency, ~25% route time reduction via algorithmic pathing, and unified monitoring for operations and guardians."
+        es: "Trazabilidad continua de vehículos con sincronización en tiempo real, optimización algorítmica de trayectos y panel unificado de supervisión para centros educativos y familias.",
+        en: "Continuous live tracking with real-time coordinate streaming, algorithmic path optimization, and unified monitoring dashboard for operations and guardians."
       },
       tags: ["Node.js", "TypeScript", "React", "Python", "FastAPI", "Redis", "Socket.IO", "PostgreSQL", "PostGIS", "Docker", "Mapbox"],
       isPrivate: true,
@@ -137,9 +141,9 @@ export const PORTFOLIO_DATA = {
       },
       gradient: "from-cyan-500/20 via-blue-500/10 to-transparent",
       metrics: [
-        { label: { es: "Latencia", en: "Latency" }, value: "< 200ms" },
-        { label: { es: "Optimización Rutas", en: "Route Optimization" }, value: "~25%" },
-        { label: { es: "Disponibilidad", en: "Availability" }, value: "99.9%" }
+        { label: { es: "Comunicación", en: "Communication" }, value: "WebSockets / Redis" },
+        { label: { es: "Optimización", en: "Optimization" }, value: "Algoritmo VRP" },
+        { label: { es: "Estructura", en: "Structure" }, value: "PostGIS Geoespacial" }
       ]
     },
     {
@@ -166,8 +170,8 @@ export const PORTFOLIO_DATA = {
         en: "Developed Python RPA bots for automated Gmail API retrieval, XML schema parsing and validation, data normalization into MariaDB, and a NestJS/Prisma backend connected to an audit dashboard in React + TypeScript."
       },
       result: {
-        es: "Reducción de más del 85% en el tiempo de procesamiento contable, tasa de error manual reducida a 0% y conciliación instantánea de miles de comprobantes fiscales.",
-        en: "Over 85% reduction in invoice processing overhead, 0% human transcription error rate, and real-time reconciliation of thousands of tax documents."
+        es: "Automatización integral del flujo contable desde la bandeja de entrada hasta la base de datos, eliminando la transcripción manual y habilitando conciliación inmediata.",
+        en: "Comprehensive automation of the accounting pipeline from email inbox to persistent database, removing manual transcription and enabling immediate reconciliation."
       },
       tags: ["Python", "React", "TypeScript", "MariaDB", "MySQL", "Prisma", "Docker", "RPA", "XML ETL", "Gmail API"],
       isPrivate: true,
@@ -177,9 +181,9 @@ export const PORTFOLIO_DATA = {
       },
       gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
       metrics: [
-        { label: { es: "Ahorro de Tiempo", en: "Time Savings" }, value: "+85%" },
-        { label: { es: "Error Manual", en: "Manual Errors" }, value: "0%" },
-        { label: { es: "Pipelines Activos", en: "Active Pipelines" }, value: "24/7" }
+        { label: { es: "Extracción", en: "Extraction" }, value: "Gmail API Bot" },
+        { label: { es: "Validación", en: "Validation" }, value: "Esquema XSD Fiscal" },
+        { label: { es: "Persistencia", en: "Persistence" }, value: "MariaDB / Prisma" }
       ]
     },
     {
@@ -206,8 +210,8 @@ export const PORTFOLIO_DATA = {
         en: "Video analytics engine using MediaPipe FaceMesh, OpenCV, and DeepFace. Computes live Eye Aspect Ratio (EAR), Mouth Aspect Ratio (MAR), eyelid closure (PERCLOS), and head droop pose (solvePnP) into a composite readiness score streamed via WebSockets to React 19."
       },
       result: {
-        es: "Detección preventiva en milisegundos con alertas acústicas y visuales graduadas (aviso a crítico), tracking simultáneo de múltiples puestos y telemetría de biosensores externos.",
-        en: "Sub-second proactive warnings with tiered audible/visual escalation, multi-station simultaneous tracking, and external sensor ingestion endpoints."
+        es: "Detección preventiva en tiempo real con alertas acústicas y visuales graduadas (aviso a crítico), tracking simultáneo de múltiples puestos y telemetría de biosensores externos.",
+        en: "Proactive real-time detection with tiered audible/visual escalation, multi-station simultaneous tracking, and external sensor ingestion endpoints."
       },
       tags: ["Python 3.11", "MediaPipe", "OpenCV", "DeepFace", "React 19", "FastAPI", "WebSockets", "SQLite"],
       isPrivate: false,
@@ -218,9 +222,9 @@ export const PORTFOLIO_DATA = {
       },
       gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
       metrics: [
-        { label: { es: "Procesamiento", en: "Processing" }, value: "30+ FPS" },
-        { label: { es: "Métricas Faciales", en: "Facial Metrics" }, value: "EAR / PERCLOS" },
-        { label: { es: "Alerta Crítica", en: "Critical Alert" }, value: "Instantánea" }
+        { label: { es: "Algoritmos", en: "Algorithms" }, value: "EAR / PERCLOS / MAR" },
+        { label: { es: "Pose 3D", en: "3D Pose" }, value: "solvePnP Head Pose" },
+        { label: { es: "Streaming", en: "Streaming" }, value: "FastAPI + WebSockets" }
       ]
     },
     {
@@ -247,8 +251,8 @@ export const PORTFOLIO_DATA = {
         en: "Built on .NET 8 and WinUI 3 with Clean Architecture. Implemented ultra-fast SQLite WAL persistence via EF Core 8, dual-dock UX (side-docked and floating notes), DPAPI credential encryption, and Google Drive OAuth 2.0 sync."
       },
       result: {
-        es: "Tiempo de arranque inferior a 250ms, cero fricción de interfaz nativa de Windows 11 y arquitectura modular cubierta con suite de pruebas unitarias automáticas.",
-        en: "Startup time under 250ms, zero-friction Windows 11 native aesthetics, and a modular architecture backed by comprehensive unit tests."
+        es: "Arranque nativo inmediato, persistencia transaccional resiliente a fallos y sincronización cifrada con la nube privada del usuario.",
+        en: "Instant native startup, fault-tolerant transactional persistence, and encrypted synchronization with the user's private cloud."
       },
       tags: ["C#", ".NET 8", "WinUI 3", "SQLite", "EF Core", "Google Drive API", "DPAPI", "XAML", "Clean Arch"],
       isPrivate: false,
@@ -259,9 +263,9 @@ export const PORTFOLIO_DATA = {
       },
       gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
       metrics: [
-        { label: { es: "Arranque", en: "Startup" }, value: "< 250ms" },
-        { label: { es: "Modo SQLite", en: "SQLite Mode" }, value: "WAL Ultra-fast" },
-        { label: { es: "Plataforma", en: "Platform" }, value: "Win 10/11" }
+        { label: { es: "Arquitectura", en: "Architecture" }, value: "Clean Architecture" },
+        { label: { es: "Base de Datos", en: "Database" }, value: "SQLite WAL Mode" },
+        { label: { es: "Sincronización", en: "Synchronization" }, value: "Google Drive OAuth 2" }
       ]
     },
     {
@@ -293,7 +297,7 @@ export const PORTFOLIO_DATA = {
       },
       tags: ["TypeScript", "Vite", "Vitest", "CSS3", "NPM Registry", "i18n", "Zero-Dependencies"],
       isPrivate: false,
-      repoUrl: "https://github.com/MarkSerna/ourajs",
+      repoUrl: "https://github.com/MarkSerna/oura-ui",
       packageUrl: "https://www.npmjs.com/package/oura-ui",
       badge: {
         es: "Paquete en NPM",
@@ -301,9 +305,9 @@ export const PORTFOLIO_DATA = {
       },
       gradient: "from-purple-500/20 via-pink-500/10 to-transparent",
       metrics: [
-        { label: { es: "Tamaño", en: "Bundle Size" }, value: "10 kB" },
-        { label: { es: "Dependencias", en: "Dependencies" }, value: "0" },
-        { label: { es: "Idiomas", en: "Languages" }, value: "10" }
+        { label: { es: "Empaquetado", en: "Bundle" }, value: "10 kB (0 Dependencias)" },
+        { label: { es: "Tipado", en: "Typing" }, value: "TypeScript Estricto" },
+        { label: { es: "Traducción", en: "Localization" }, value: "i18n 10 Idiomas" }
       ]
     },
     {
@@ -344,8 +348,8 @@ export const PORTFOLIO_DATA = {
       gradient: "from-teal-500/20 via-cyan-500/10 to-transparent",
       metrics: [
         { label: { es: "Integración", en: "Integration" }, value: "VS Code / VSCodium" },
-        { label: { es: "Simulación", en: "Simulation" }, value: "iOS / Android" },
-        { label: { es: "Marketplace", en: "Marketplace" }, value: "Open VSX" }
+        { label: { es: "Perfiles", en: "Profiles" }, value: "iOS & Android" },
+        { label: { es: "Distribución", en: "Distribution" }, value: "Open VSX Registry" }
       ]
     }
   ] as Project[],
@@ -464,51 +468,51 @@ export const PORTFOLIO_DATA = {
       name: { es: "Frontend & Interfaces", en: "Frontend & Interfaces" },
       icon: "Layout",
       skills: [
-        { name: "React", level: "Avanzado", highlight: true },
-        { name: "TypeScript", level: "Avanzado", highlight: true },
-        { name: "Next.js", level: "Avanzado", highlight: true },
-        { name: "Tailwind CSS", level: "Avanzado", highlight: true },
-        { name: "Angular", level: "Intermedio" },
-        { name: "HTML5 / CSS3 Moderno", level: "Avanzado" },
-        { name: "Vite", level: "Avanzado" }
+        { name: "React", highlight: true },
+        { name: "TypeScript", highlight: true },
+        { name: "Next.js", highlight: true },
+        { name: "Tailwind CSS", highlight: true },
+        { name: "Angular" },
+        { name: "HTML5 / CSS3 Moderno" },
+        { name: "Vite" }
       ]
     },
     {
       name: { es: "Backend & Tiempo Real", en: "Backend & Real-Time" },
       icon: "Server",
       skills: [
-        { name: "Node.js / Express", level: "Avanzado", highlight: true },
-        { name: "Python / FastAPI", level: "Avanzado", highlight: true },
-        { name: "WebSockets & Socket.IO", level: "Avanzado", highlight: true },
-        { name: "C# / .NET 8", level: "Intermedio", highlight: true },
-        { name: "PHP / Laravel", level: "Intermedio" },
-        { name: "NestJS / Prisma", level: "Intermedio" },
-        { name: "REST APIs & Microservicios", level: "Avanzado" }
+        { name: "Node.js / Express", highlight: true },
+        { name: "Python / FastAPI", highlight: true },
+        { name: "WebSockets & Socket.IO", highlight: true },
+        { name: "C# / .NET 8", highlight: true },
+        { name: "PHP / Laravel" },
+        { name: "NestJS / Prisma" },
+        { name: "REST APIs & Microservicios" }
       ]
     },
     {
       name: { es: "RPA, Visión Artificial & Datos", en: "RPA, Computer Vision & Data" },
       icon: "Cpu",
       skills: [
-        { name: "Bots RPA (Python / Playwright)", level: "Avanzado", highlight: true },
-        { name: "Procesamiento XML / JSON / ETL", level: "Avanzado", highlight: true },
-        { name: "MediaPipe & OpenCV", level: "Intermedio", highlight: true },
-        { name: "PostgreSQL & PostGIS", level: "Avanzado", highlight: true },
-        { name: "MariaDB & MySQL", level: "Avanzado" },
-        { name: "Redis", level: "Intermedio" },
-        { name: "SQLite (WAL)", level: "Avanzado" }
+        { name: "Bots RPA (Python / Playwright)", highlight: true },
+        { name: "Procesamiento XML / JSON / ETL", highlight: true },
+        { name: "MediaPipe & OpenCV", highlight: true },
+        { name: "PostgreSQL & PostGIS", highlight: true },
+        { name: "MariaDB & MySQL" },
+        { name: "Redis" },
+        { name: "SQLite (WAL)" }
       ]
     },
     {
       name: { es: "DevOps & Ecosistema", en: "DevOps & Tooling" },
       icon: "Wrench",
       skills: [
-        { name: "Docker & Docker Compose", level: "Avanzado", highlight: true },
-        { name: "Git / GitHub / GitLab", level: "Avanzado", highlight: true },
-        { name: "Flutter / Dart", level: "Intermedio" },
-        { name: "Mapbox GL", level: "Intermedio" },
-        { name: "Testing (Vitest / Pytest)", level: "Intermedio" },
-        { name: "Linux / Nginx", level: "Intermedio" }
+        { name: "Docker & Docker Compose", highlight: true },
+        { name: "Git / GitHub / GitLab", highlight: true },
+        { name: "Flutter / Dart" },
+        { name: "Mapbox GL" },
+        { name: "Testing (Vitest / Pytest)" },
+        { name: "Linux / Nginx" }
       ]
     }
   ] as SkillGroup[]

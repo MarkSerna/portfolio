@@ -28,7 +28,7 @@ export default function Skills() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
             {language === 'es' ? 'Habilidades & Herramientas Comprobadas' : 'Verified Skills & Tooling'}
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             {language === 'es'
               ? 'Tecnologías y frameworks aplicados directamente en proyectos de producción, repositorios y sistemas de alto desempeño.'
               : 'Technologies and frameworks actively applied in production workloads, open repositories, and high-performance services.'}
@@ -42,7 +42,7 @@ export default function Skills() {
             return (
               <div
                 key={idx}
-                className="glass-panel p-6 sm:p-7 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all flex flex-col justify-between"
+                className="glass-panel p-6 sm:p-7 rounded-2xl border border-white/10 hover:border-cyan-500/30 transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
@@ -51,45 +51,40 @@ export default function Skills() {
                     </div>
                     <div>
                       <h3 className="text-lg font-bold text-white">{group.name[language]}</h3>
-                      <div className="text-[11px] font-mono text-cyan-400">
-                        {group.skills.length} {language === 'es' ? 'tecnologías clave' : 'core technologies'}
+                      <div className="text-[11px] font-mono text-cyan-300">
+                        {group.skills.length} {language === 'es' ? 'tecnologías en código' : 'technologies in live code'}
                       </div>
                     </div>
                   </div>
 
-                  {/* Skills Grid */}
+                  {/* Skills Grid without arbitrary levels */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {group.skills.map((skill) => (
                       <div
                         key={skill.name}
-                        className={`p-2.5 rounded-xl border transition-all flex items-center justify-between ${
+                        className={`p-2.5 rounded-xl border transition-all flex items-center gap-2.5 ${
                           skill.highlight
-                            ? 'bg-slate-900/90 border-cyan-500/30 shadow-sm shadow-cyan-500/5'
-                            : 'bg-slate-950/60 border-slate-800/80 hover:border-slate-700'
+                            ? 'bg-slate-900/95 border-cyan-500/30 shadow-sm shadow-cyan-500/5'
+                            : 'bg-slate-950/80 border-slate-800 hover:border-slate-700'
                         }`}
                       >
-                        <div className="flex items-center gap-2">
-                          <span
-                            className={`w-1.5 h-1.5 rounded-full ${
-                              skill.highlight ? 'bg-cyan-400' : 'bg-slate-500'
-                            }`}
-                          ></span>
-                          <span className="text-xs font-semibold text-slate-200">{skill.name}</span>
-                        </div>
-                        <span className="text-[10px] font-mono text-slate-400 bg-slate-800/70 px-1.5 py-0.5 rounded">
-                          {skill.level}
-                        </span>
+                        <span
+                          className={`w-2 h-2 rounded-full shrink-0 ${
+                            skill.highlight ? 'bg-cyan-400' : 'bg-slate-400'
+                          }`}
+                        ></span>
+                        <span className="text-xs font-semibold text-slate-100">{skill.name}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
+                <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-300">
                   <span className="flex items-center gap-1.5 text-cyan-300">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                     {language === 'es' ? 'Validado en Código Real' : 'Validated in Live Code'}
                   </span>
-                  <span className="font-mono text-slate-500">2024 – 2026</span>
+                  <span className="font-mono text-slate-400">2024 – 2026</span>
                 </div>
               </div>
             );
