@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  --background: #07090e;
+  --foreground: #f1f5f9;
+  --surface: #0f1420;
+  --surface-border: #1e293b;
+  --accent-cyan: #06b6d4;
+  --accent-blue: #3b82f6;
+  --accent-emerald: #10b981;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #06b6d4;
+  selection-color: #07090e;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07090e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(15, 20, 32, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(20, 27, 45, 0.85);
+  border-color: rgba(6, 182, 212, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.15);
+}
+
+/* Subtle background pattern */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.glow-ambient {
+  position: absolute;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.15;
+  border-radius: 9999px;
+}
